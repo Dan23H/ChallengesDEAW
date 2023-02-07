@@ -9,7 +9,7 @@ const FirstApp = ({ title, sum }) => {
     )
 }
 
-FirstApp.PropTypes = {
+FirstApp.propTypes = {
     title: PropTypes.string.isRequired,
     sum: PropTypes.number.isRequired
 }
