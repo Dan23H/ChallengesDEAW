@@ -1,13 +1,16 @@
+import { useState } from "react";
 
 const Function = ({ value }) => {
+    const [counter, setCounter] = useState( value );
+    
     const handleAdd = () => {
-        console.log('calling handleAdd')
+        setCounter(counter + 1);
     }
 
     return (
         <>
             <h1> Counter </h1>
-            <span> { value } </span>
+            <span> { counter } </span>
             <br/>
             <button onClick={ () => handleAdd() }> +1 </button>
         </>
