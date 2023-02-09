@@ -12,6 +12,11 @@ export const DynamicArray = () => {
         setCategories(array => [...array,category])
         setCategory('')
     }
+
+    const removeCategories = () => {
+        categories.pop()
+        setCategories(array1 => [...array1])
+    }
     
 
     return (
@@ -19,6 +24,7 @@ export const DynamicArray = () => {
             <h1>GifExpert</h1>
             <input onChange={(event) => addCategory(event)} value={category} type="text"></input>
             <button onClick={() => addCategories()} > + </button>
+            <button onClick={() => removeCategories()}> Remove </button>
             <ol>
                 {
                     categories.map(
