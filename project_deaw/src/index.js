@@ -4,13 +4,14 @@ import './index.css';
 //import Counter from './Counter';
 //import Function from './Functions';
 //import {DynamicArrayTraditional} from './DynamicArray.jsx'
-import {DynamicArrayReact} from './DynamicArray.jsx'
+
+import {GifExpertApp} from './DynamicArray.jsx'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DynamicArrayReact />
+    <GifExpertApp />
   </React.StrictMode>
 );
 

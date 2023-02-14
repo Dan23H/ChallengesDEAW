@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 export const AddCategory = ({onAddCategory}) => {
-    const [inputValue, setInputValue] = useState('...')
+    const [inputValue, setinputValue] = useState('...')
 
     const onInputChange = (evt) => {
-        setInputValue(evt.target.value)
+        setinputValue(evt.target.value)
     }
 
     const onSubmit = (evt) => {
         evt.preventDefault();
         onAddCategory( inputValue );
-        setInputValue('');
+        setinputValue('');
     }
 
     return (
@@ -21,6 +21,7 @@ export const AddCategory = ({onAddCategory}) => {
                 value={ inputValue }
                 onChange={ (event) => onInputChange(event)}
             />
+            <button onSubmit={(event) => onSubmit(event)}>Enviar</button>
         </form>
     )
 }
