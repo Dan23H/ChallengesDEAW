@@ -7,17 +7,19 @@ export const DynamicArray = () => {
     const addCategory = (evt) => {
         setCategory(evt.target.value)
     }
-    
+
     const addCategories = () => {
-        setCategories(array => [...array,category])
+        setCategories(array => [...array, category])
         setCategory('')
     }
 
     const removeCategories = () => {
-        categories.pop()
-        setCategories(array1 => [...array1])
+        if (categories.length > 0) {
+            categories.pop()
+            setCategories(array1 => [...array1])
+        }
     }
-    
+
 
     return (
         <>
