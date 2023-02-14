@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import Counter from './Counter';
-//import Function from './Functions';
-import {DynamicArray} from './DynamicArray'
+//import Counter from './components/Counter';
+//import Function from './components/Functions';
+import {DynamicArrayTraditional} from './components/DynamicArray.jsx'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DynamicArray />
+    <DynamicArrayTraditional />
   </React.StrictMode>
 );
 

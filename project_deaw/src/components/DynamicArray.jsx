@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const DynamicArray = () => {
+export const DynamicArrayTraditional = () => {
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('')
 
