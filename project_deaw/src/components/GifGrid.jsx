@@ -3,15 +3,16 @@ import { GifItem } from "./GifItem";
 import { getGifs } from "./GetGifs"
 
 export const GifGrid = ({ category }) => {
-    const [gifsList, setGifsList] = useState([])
+    const [gifsList, setGifsList] = useState([]);
 
     const newFunction = async() => {
         const gifsList = await getGifs(category)
         setGifsList(gifsList)
     }
 
+    
     useEffect(() => {
-        newFunction();
+        newFunction(); // eslint-disable-next-line
     }, [])
 
     return (
