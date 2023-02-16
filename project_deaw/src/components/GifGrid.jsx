@@ -1,24 +1,30 @@
-const getGifs = async (category) => {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=KYxmtA1qz27qrW5rSjakDwV8FCRLJHf2&q=${category}&limit=25&offset=0&rating=g&lang=en`;
-    const resp = await fetch(url)
-    const { data } = await resp.json()
-    const gifs = data.map(img => {
-        return {
-            id: img.id,
-            title: img.title,
-            url: img.images.downsized_medium.url
-        }
-    })
-
-    return gifs
-}
+import { useState, useEffect } from "react";
+import { GifItem } from "./GifItem";
+import { getGifs } from "./GetGifs"
 
 export const GifGrid = ({ category }) => {
-    getGifs(category)
+    const [gifsList, setGifsList] = useState([])
+
+    const newFunction = async() => {
+        const gifsList = await getGifs(category)
+        setGifsList(gifsList)
+    }
+
+    useEffect(() => {
+        newFunction();
+    }, [])
+
     return (
         <>
-            <h3>{ category }</h3>
-            <p> Hello World! </p>
+            <h3>{category}</h3>
+            <div className="GifsCSS">
+                {
+                    gifsList.map((image, key) => {
+                        return <GifItem key={key} {...image}></GifItem>
+                    })
+                }
+            </div>
         </>
     )
+
 }
