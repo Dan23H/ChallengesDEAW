@@ -1,20 +1,8 @@
-import { useState, useEffect } from "react";
 import { GifItem } from "./GifItem";
-import { getGifs } from "./GetGifs"
+import { useFetchGifs } from "../hooks/useFetchGifs";
 
-export const GifGrid = ({ category }) => {
-    const [gifsList, setGifsList] = useState([]);
-
-    const newFunction = async() => {
-        const gifsList = await getGifs(category)
-        setGifsList(gifsList)
-    }
-
-    
-    useEffect(() => {
-        newFunction(); // eslint-disable-next-line
-    }, [])
-
+export const GifGrid = ({ category }) => { // eslint-disable-next-line
+    const {gifsList, isLoading} = useFetchGifs( category )
     return (
         <>
             <h3>{category}</h3>
