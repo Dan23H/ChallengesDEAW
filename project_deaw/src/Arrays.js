@@ -186,7 +186,7 @@ console.log(array25.reduceRight((a, b) => {return a * b}))
 // reverse() invierte el orden de los elementos de un arreglo y después hace que el arreglo original copie los resultados.
 const array26_1 = [1, 3, 5, 7, 9]
 const array26_2 = array26_1.reverse()
-console.log(array26_2, ' vs ' array26_1)
+console.log(array26_2, ' vs ', array26_1)
 // Devolverá en la consola 2 mensajes iguales: Array [9, 7, 5, 3, 1]
 
 // shift() elimina el primer elemento del arreglo. También cambia la longitud del arreglo.
