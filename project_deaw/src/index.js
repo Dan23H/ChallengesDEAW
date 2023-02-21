@@ -5,7 +5,7 @@ import './index.css';
 //import Function from './Functions';
 //import {DynamicArrayTraditional} from './DynamicArray.jsx'
 
-import {GifExpertApp} from './DynamicArray.jsx'
+import { GifExpertApp } from './GifExpertApp';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
