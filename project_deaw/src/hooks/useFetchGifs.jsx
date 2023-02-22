@@ -4,18 +4,18 @@ import { getGifs } from "../components/GetGifs"
 export const useFetchGifs = (category) => {
     const [gifsList, setGifsList] = useState([]);
 
-    const newFunction = async() => {
+    const newFunction = async () => {
         const gifsList = await getGifs(category)
         setGifsList(gifsList)
     }
 
-    
+
     useEffect(() => {
         newFunction(); // eslint-disable-next-line
     }, [])
     return {
         images: gifsList,
-        isLoading: false,
+        isoading: false,
         error: null
     }
 }

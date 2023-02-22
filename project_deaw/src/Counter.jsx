@@ -1,30 +1,18 @@
 import './App.css';
-import { useState } from "react";
+import { useCounter } from './hooks/useCounter';
 import PropTypes from 'prop-types';
 
 export const Counter = ({ value }) => {
-  const [counter, setCounter] = useState(value);
-
-  const handleAdd = () => {
-    setCounter(counter + 1);
-  }
-
-  const handleSubsstract = () => {
-    setCounter(counter - 1);
-  }
-
-  const handleReset = () => {
-    setCounter(value);
-  }
+  const { count, add, substract, reset } = useCounter(value)
 
   return (
     <>
       <h1> Counter </h1>
-      <h4> {counter} </h4>
+      <h4> {count} </h4>
       <br />
-      <button onClick={() => handleAdd()}> +1 </button>
-      <button onClick={() => handleSubsstract()}> -1 </button>
-      <button onClick={() => handleReset()}> Reset </button>
+      <button onClick={() => add()}> +1 </button>
+      <button onClick={() => substract()}> -1 </button>
+      <button onClick={() => reset()}> RESET </button>
       <br />
     </>
   );
@@ -37,3 +25,17 @@ Counter.propTypes = {
 Counter.defaultProps = {
   value: 0
 }
+
+/*const [counter, setCounter] = useState(value);
+ 
+const handleAdd = () => {
+  setCounter(counter + 1);
+}
+
+const handleSubsstract = () => {
+  setCounter(counter - 1);
+}
+
+const handleReset = () => {
+  setCounter(value);
+}*/
