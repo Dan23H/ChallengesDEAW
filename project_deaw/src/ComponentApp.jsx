@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export const DynamicArray = () => {
+export const ComponentApp = () => {
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('')
 
