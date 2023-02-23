@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 const title = 'First App'
-
 export const FirstApp = () => {
     return (
         <>
