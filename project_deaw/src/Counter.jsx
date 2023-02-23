@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 export const Counter = ({ value }) => {
   const { count, add, substract, reset } = useCounter(value)
-
   return (
     <>
       <h1> Counter </h1>
@@ -24,17 +23,3 @@ Counter.propTypes = {
 Counter.defaultProps = {
   value: 0
 }
-
-/*const [counter, setCounter] = useState(value);
- 
-const handleAdd = () => {
-  setCounter(counter + 1);
-}
-
-const handleSubsstract = () => {
-  setCounter(counter - 1);
-}
-
-const handleReset = () => {
-  setCounter(value);
-}*/
