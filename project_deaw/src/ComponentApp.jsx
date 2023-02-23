@@ -10,13 +10,17 @@ export const ComponentApp = () => {
     }
     const settingCategory = (evt) => {
         setCategory(evt.target.value)
+    }
 
+    const subtractingCategories = () => {
+        
     }
     return(
         <>
             <h1>GifExpert</h1>
             <input type="text" value={category} onChange={(event) => {settingCategory(event)}} />
-            <button onClick={() => addingCategories()}> Add Category </button>
+            <button onClick={() => addingCategories()}> + </button>
+            <button onClick={() => subtractingCategories()}> - </button>
             <ol>
                 {
                     categories.map(
