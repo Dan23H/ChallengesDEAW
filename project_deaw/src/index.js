@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Counter } from './Counter';
 //import Function from './Functions';
-//import {DynamicArrayTraditional} from './DynamicArray.jsx'
+import {DynamicArray} from './DynamicArray.jsx'
 
 import { GifExpertApp } from './GifExpertApp';
 import reportWebVitals from './reportWebVitals';
@@ -11,8 +11,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Counter value={0} />
+    <Counter value={500} />
     <GifExpertApp />
+    <DynamicArray />
   </React.StrictMode>
 );
 
