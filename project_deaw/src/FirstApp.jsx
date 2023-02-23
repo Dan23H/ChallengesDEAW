@@ -1,6 +1,6 @@
 const title = 'First App'
 
-const FirstApp = () => {
+export const FirstApp = () => {
     return (
         <>
             <h1> { title } </h1>
