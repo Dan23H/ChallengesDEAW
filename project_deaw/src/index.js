@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {ComponentApp} from './ComponentApp';
+import { GiftExpertApp } from './GiftExpertApp';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ComponentApp />
+    <GiftExpertApp />
   </React.StrictMode>
 );
 
