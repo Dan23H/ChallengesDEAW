@@ -33,30 +33,10 @@ export const GifGrid = ({ category }) => {
             <div className="GifsCSS">
                 {
                     images.map((image,key) => {
-                        return <GifItem key={key} image={...image} ></GifItem>
+                        return <GifItem key={key} {...image} />
                     })
                 }
             </div>
         </>
     )
 }
-
-export const useFetchGifs = (category) => {
-    const [gifsList, setGifsList] = useState([]);
-
-    const newFunction = async () => {
-        const gifsList = await getGifs(category)
-        setGifsList(gifsList)
-    }
-
-
-    useEffect(() => {
-        newFunction(); // eslint-disable-next-line
-    }, [])
-    return {
-        images: gifsList,
-        isLoading: false,
-        error: null
-    }
-}
-
