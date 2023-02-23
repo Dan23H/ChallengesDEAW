@@ -1,3 +1,4 @@
+import { useState } from "react"
 /// const categories = ['Primera Categoría', 'Segunda Categoría']
 export const ComponentApp = () => {
     // Challenge3:
