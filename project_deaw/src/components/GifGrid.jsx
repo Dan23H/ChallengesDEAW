@@ -1,8 +1,15 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+const getGifs = async (category) => {
+    const url = ``
+}
+
 export const GifGrid = ({ category }) => {
-    
+    const [images,getImages] = useState([])
+    getGifs = async() => {
+        console.log(images)
+    }
     useEffect(() => {
-        console.log(category) // eslint-disable-next-line
+        getGifs() // eslint-disable-next-line
     }, [])
 
     return (
