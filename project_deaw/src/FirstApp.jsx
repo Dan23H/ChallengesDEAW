@@ -8,3 +8,13 @@ export const FirstApp = () => {
         </>
     )
 }
+
+FirstApp.propTypes = {
+    title: PropTypes.string.isRequired,
+    sum: PropTypes.number.isRequired
+}
+
+FirstApp.defaultProps = {
+    title: 'No hay título',
+    sum: 300
+}
