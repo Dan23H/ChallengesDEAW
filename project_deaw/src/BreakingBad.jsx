@@ -8,11 +8,17 @@ export const BreakingBad = () => {
         <h3>BreakingBad Quotes</h3>
         {
             isLoading ? (
-                <div></div>
+                <div>
+                    Loading...
+                </div>
             ) : (
-                <div></div>
+                <div>
+                    <p>{data[0]?.quote}</p>
+                    <footer>{data[0]?.author}</footer>
+                </div>
             )
         }
+        <button onClick={() => add()}>Next Quote</button>
         
     </>
     )
