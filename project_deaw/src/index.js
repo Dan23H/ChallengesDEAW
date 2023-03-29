@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
+import './07-reducer/intro-reducer.js'
 import { store } from './10-redux/store/store';
 import { Registro } from "./10-redux/Registro";
 
