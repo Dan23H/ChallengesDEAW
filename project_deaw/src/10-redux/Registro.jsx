@@ -1,7 +1,11 @@
-import React from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { auth } from "../firebase/config";
+import { logout, register } from './store/slices/auth/AuthSlice.js'
 import { useForm } from "../hooks/useForm";
-import { registerAuth } from "./store/slices/auth/Thunks";
+
+import { registerAuth } from "./store/slices/auth/Thunks.js";
 
 export const Registro = () => {
     const dispatch = useDispatch()
@@ -9,6 +13,19 @@ export const Registro = () => {
         email: 'jlopez0313@gmail.com',
         password: '12346'
     })
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        console.log(formState)
+        dispatch(registerAuth(email,password))
+    }
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async(user) => {
+            if (!user) return dispatch(logout())
+            dispatch(register({email:user.email}))
+        })
+    },[])
 
     return ( 
         <>

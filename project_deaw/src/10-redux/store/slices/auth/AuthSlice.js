@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 export const authSlice = createSlice({
     name: 'auth',
-    initialstate: {
+    initialState: {
         status: 'checking',
         uid: null,
         email: null,
@@ -23,4 +23,4 @@ export const authSlice = createSlice({
     }
 })
 
-export const { login, logout, checkingCredentials, } = authSlice.actions
+export const { logout, checkingCredentials, register } = authSlice.actions

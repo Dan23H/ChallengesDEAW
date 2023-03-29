@@ -1,5 +1,6 @@
+import { register } from "./AuthSlice"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
-import { auth } from "../../../firebase/config"
+import { auth } from '../../../../firebase/config'
 
 export const registerAuth = (email, password) => {
     return async (dispatch) => {
@@ -10,8 +11,8 @@ export const registerAuth = (email, password) => {
                 photoURL: ''
             })
 
-            const {email} = response.user
-            dispatch(register({email}))
+            const { email } = response.user
+            dispatch(register({ email }))
         } else {
             throw new Error('login failed')
         }
