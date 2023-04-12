@@ -1,5 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { TodoReducer } from "./TodoReducer";
+import { TodoList } from "./TodoList";
+import { TodoAdd } from "./TodoAdd";
 import * as types from './types'
 
 const initialState = [{
@@ -13,7 +15,7 @@ const init = () => {
 }
 
 export const TodoApp = () => {
-    const [todos, dispatchTodo] = useReducer(TodoReducer, initialState)
+    const [todos, dispatchTodo] = useReducer(TodoReducer, initialState, init)
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -42,7 +44,7 @@ export const TodoApp = () => {
             <hr />
             <div>
                 <div>
-                    <TodoList todos={ todos } />
+                    <TodoList todos={todos} />
                 </div>
                 <div>
                     <TodoAdd onNewTodo={handleNewTodo} />
