@@ -15,7 +15,7 @@ const init = () => {
 }
 
 export const TodoApp = () => {
-    const [todos, dispatchTodo] = useReducer(TodoReducer, initialState, init)
+    const [todos, dispatch] = useReducer(TodoReducer, initialState, init)
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
@@ -36,8 +36,9 @@ export const TodoApp = () => {
             type: types.CREATE_TODO,
             payload: todo
         }
-        dispatchTodo(action)
+        dispatch(action)
     }
+    
     return (
         <>
             <h1>TodoApp</h1>
