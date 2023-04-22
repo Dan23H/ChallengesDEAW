@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { MainApp } from './components/MainApp.jsx'
 import reportWebVitals from './reportWebVitals';
-import { TodoAdd } from './components/TodoAdd';
-
+import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <TodoAdd />
+  <BrowserRouter>
+    <MainApp />
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
