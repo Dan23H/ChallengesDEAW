@@ -1,7 +1,5 @@
 import { Link, Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { AboutPage } from './AboutPage'
-import { HomePage } from './HomePage'
-import { LoginPage } from './LoginPage'
+import { ProductsPage } from './ProductsPage'
 
 
 export const MainApp = () => {
@@ -10,17 +8,11 @@ export const MainApp = () => {
             <h1>MainApp</h1>
             <hr />
             
-            <NavLink className={(args) => `${args.isActive ? 'active' : ''}`} to="/" >Home</NavLink>
-            <Link to='/'>Home</Link>
-            <Link to='about'>About</Link>
-            <Link to="login">Login</Link>
+            <NavLink to="products/3" >Product by ID</NavLink>
             
             
             <Routes>
-                <Route path="/" element={ <HomePage /> } />
-                <Route path="login" element={ <LoginPage /> } />
-                <Route path="about" element={ <AboutPage /> } />
-                <Route path="/*" element={ <Navigate to="/about" /> } />
+                <Route path=":id" element={ <ProductsPage /> } />
             </Routes>
         </>
     )
