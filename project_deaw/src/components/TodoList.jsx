@@ -1,11 +1,11 @@
 import { TodoItem } from "./TodoItem"
-export const TodoList = ({todos = []}) => {
+export const TodoList = ({todos = [], deleteTodo}) => {
     return (
         <ul>
            {
             todos.map((todo, key) => {
                 return(
-                    <TodoItem key={key} todo={todo} />
+                    <TodoItem key={key} todo={todo} deleteTodo={deleteTodo} />
                 )
             })
            } 

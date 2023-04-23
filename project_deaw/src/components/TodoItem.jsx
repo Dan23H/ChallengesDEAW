@@ -1,4 +1,4 @@
-export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
+export const TodoItem = ({ todo, deleteTodo, onToggleTodo }) => {
     return (
         <li>
             <span
@@ -12,7 +12,7 @@ export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
             </span>
             <button
                 className="btn btn-danger"
-                onClick={() => { onDeleteTodo(todo.id) }}
+                onClick={() => { deleteTodo(todo.id) }}
             >
                 Borrar
             </button>

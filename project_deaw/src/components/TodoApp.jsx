@@ -1,10 +1,8 @@
-import { useEffect, useReducer } from "react";
-import { TodoReducer } from "./TodoReducer";
+import { useTodoHook } from "../hooks/useTodoHook"
 import { TodoList } from "./TodoList";
 import { TodoAdd } from "./TodoAdd";
-import * as types from './types'
 
-const initialState = [{
+/*const initialState = [{
     id: new Date().getTime(),
     description: 'Hacer los challenges',
     done: false
@@ -12,16 +10,16 @@ const initialState = [{
 
 const init = () => {
     return JSON.parse(localStorage.getItem('todos')) || []
-}
+}*/
 
 export const TodoApp = () => {
-    const [todos, dispatch] = useReducer(TodoReducer, initialState, init)
+    /*const [todos, dispatch] = useReducer(TodoReducer, initialState, init)
 
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
     }, [todos])
 
-    /* Forma tradicional:
+     Forma tradicional:
     const handleNewTodo = (todo) => {
         const action = {
             type: '[TODO] ADD TODO',
@@ -29,7 +27,7 @@ export const TodoApp = () => {
         }
         dispatchTodo(action)
     }
-    */
+    
 
     const handleNewTodo = (todo) => {
         const action = {
@@ -37,18 +35,23 @@ export const TodoApp = () => {
             payload: todo
         }
         dispatch(action)
-    }
-    
+    }*/
+    const {todos, newTodo, deleteTodo, countTodos, countTodosP} = useTodoHook()
+
     return (
         <>
             <h1>TodoApp</h1>
             <hr />
             <div>
                 <div>
-                    <TodoList todos={todos} />
+                    <TodoList todos={todos} deleteTodo={deleteTodo} />
                 </div>
                 <div>
-                    <TodoAdd onNewTodo={handleNewTodo} />
+                    <TodoAdd onNewTodo={newTodo} />
+                </div>
+                <div>
+                    <span>Total todos: {countTodos()}</span>
+                    <span>Todos pendientes: {countTodosP()}</span>
                 </div>
             </div>
         </>
