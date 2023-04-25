@@ -1,13 +1,24 @@
 const express = require('express')
+const Usuario = require('../models/Usuario')
 
-
-const crearUsuario = (req, res = express.response) => {
+const crearUsuario = async (req, res = express.response) => {
     const { name, email, password } = req.body
-       
-    res.status(200).json({
-        ok: true,
-        name, email, password
-    })
+    try {
+        const usuario= new Usuario(req.body)
+        await usuario.save()
+
+        res.status(200).json({
+            ok: true,
+            name, email, password
+        })
+    } catch(error) {
+        console.log(error)
+        res.status(500).json({
+            ok: false,
+            error
+        })
+    }
+    
 }
 
 const loginUsuario = (req, res = express.response) => {
