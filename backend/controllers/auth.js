@@ -12,7 +12,7 @@ const crearUsuario = (req, res = express.response) => {
 
 const loginUsuario = (req, res = express.response) => {
     const { user, password } = req.body
-    res.json({
+    res.status(200).json({
         ok: true,
         user, password
     })
