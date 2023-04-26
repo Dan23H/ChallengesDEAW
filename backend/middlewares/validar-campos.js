@@ -13,11 +13,7 @@ const validarCampos = (req, res = express.response, next) => {
 }
 
 const validarPassword = (req, res = express.response, next) => {
-    if(!req.body.password ==! req.body.passwordconfirm){
-        return res.status(201).json({
-            ok: true
-        })
-    } else {
+    if(req.body.password =! req.body.passwordconfirm){
         return res.status(400).json({
             ok: false,
             message: 'La contraseñas no coinciden'
