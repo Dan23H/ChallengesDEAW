@@ -2,16 +2,24 @@ const express = require('express')
 const router = express.Router()
 const { check } = require('express-validator')
 const { crearUsuario, loginUsuario, revalidarToken } = require('../controllers/auth')
-const { validarCampos } = require('../middlewares/validar-campos')
+const { validarCampos, validarPassword } = require('../middlewares/validar-campos')
 
-router.post('/', loginUsuario)
+router.post(
+    '/',
+    [
+        check('user', 'El campo usuario no puede estar vacío. Prueba con el nombre o con el email').not().isEmpty(),
+        check('password', 'La contraseña debe ser de mínimo 6 caracteres').isLength({ min: 6 }),
+        validarCampos
+    ], 
+    loginUsuario)
 
 router.post(
     '/new',
     [
         check('name', 'El nombre es obligatorio').not().isEmpty(),
         check('email', 'El email es obligatorio').isEmail(),
-        check('password').isLength({ min: 6 }),
+        check('password', 'La contraseña debe ser de mínimo 6 caracteres').isLength({ min: 6 }),
+        validarPassword(),
         validarCampos
     ],
     crearUsuario)

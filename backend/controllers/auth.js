@@ -2,17 +2,19 @@ const express = require('express')
 
 
 const crearUsuario = (req, res = express.response) => {
-    const { name, email, password } = req.body
+    const { name, email, password, passwordconfirm } = req.body
        
     res.status(200).json({
         ok: true,
-        name, email, password
+        name, email, password, passwordconfirm
     })
 }
 
 const loginUsuario = (req, res = express.response) => {
+    const { user, password } = req.body
     res.json({
-        ok: true
+        ok: true,
+        user, password
     })
 }
 
