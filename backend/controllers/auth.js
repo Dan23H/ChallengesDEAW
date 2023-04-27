@@ -37,9 +37,28 @@ const crearUsuario = async (req, res = express.response) => {
 }
 
 const loginUsuario = async (req, res = express.response) => {
-    const (email, password) = req.body
+    const {email, password} = req.body
     try{
         let usuario = await Usuario.findOne({email:email})
+        if (!usuario){
+            return res.status(400).json({
+                ok: false,
+                msg: 'El usuario NO existe'
+            })
+        }
+
+        const token = await(generarJWT(usuario.id, usuario.name))
+        res.status(200).json({
+            ok: true,
+            usuario,
+            token
+        })
+    } catch(error){
+        console.log(error)
+        res.status(500).json({
+            ok:false,
+            error
+        })
     }
 }
 
