@@ -63,9 +63,13 @@ const loginUsuario = async (req, res = express.response) => {
     }
 }
 
-const revalidarToken = (req, res = express.response) => {
+const revalidarToken = async (req, res = express.response) => {
+    const {uid, name} = req
+    const token = await(generarJWT(uid, name))
+
     res.json({
-        ok: true
+        ok: true,
+        token
     })
 }
 
