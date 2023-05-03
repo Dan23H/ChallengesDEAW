@@ -11,7 +11,8 @@ const crearUsuario = (req, res = express.response) => {
 }
 
 const loginUsuario = (req, res = express.response) => {
-    const { user, password } = req.body
+    const { user, password, passwordconfirm } = req.body
+    console.log(req.body)
     res.status(200).json({
         ok: true,
         user, password
