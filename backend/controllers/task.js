@@ -1,7 +1,7 @@
 const express = require('express')
 
 const crearTask = async (req, res = express.request) => {
-    const task = new Task( req.body)
+    const task = new Task(req.body)
 
     try {
         task.user = req.uid
