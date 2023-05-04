@@ -4,10 +4,12 @@ const {dbConnection} = require('../database/config')
 const cors = require('cors')
 
 class Server {
-    constructior() {
+    constructor() {
         // Crear Express App
         this.app = express()
         this.port = process.env.PORT
+        this.server = require('http').createServer(this.app)
+        this.sckt = require('socket.io')(this.server)
 
         this.paths = {
             auth: '/api/auth',
@@ -38,7 +40,16 @@ class Server {
     setRoutes(){
         // Rutas
         this.app.use(this.paths.auth, require('../routes/auth'))
-        this.app.use(this.paths.task, require('../routes/task'))
+        // this.app.use(this.paths.task, require('../routes/task'))
+    }
+
+    sockets() {
+        this.sckt.on('connection', socket => {
+            console.log('Cliente Conectado', socket.addMiddlewares)
+            socket.on('disconnect', () => {
+                console.log('Cliente Desconectado')
+            })
+        })
     }
 
     listen() {
