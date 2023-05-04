@@ -3,8 +3,6 @@ require('dotenv').config()
 const {dbConnection} = require('./database/config')
 const cors = require('cors')
 
-const bodyParser = require('body-parser')
-
 // Crear Express App
 const app = express();
 
@@ -16,15 +14,11 @@ app.use(cors())
 app.use(express.static('public'))
 
 // Lectura y parseo del body
-app.use(bodyParser.json())
+app.use(express.json())
 
 // Rutas
 app.use('/api/auth', require('./routes/auth') )
-app.get('/',(req,res) => {
-    res.json({
-        ok: true
-    })
-})
+app.use('/api/task', require('./routes/task'))
 
 // Escuchar en puerto 4000
 app.listen(process.env.PORT,() => {
