@@ -12,7 +12,7 @@ const crearUsuario = (req, res = express.response) => {
 
 const loginUsuario = (req, res = express.response) => {
     const { user, password } = req.body
-    const { passwordconfirm } = req.crearUsuario.passwordconfirm
+    const { passwordconfirm } = req.body
     console.log( passwordconfirm )
     console.log(req.body)
     res.status(200).json({
